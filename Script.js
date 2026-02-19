@@ -1,4 +1,4 @@
-import API_BASE_URL from "./config.js";
+//import API_BASE_URL from "./config.js";
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -22,32 +22,33 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // FORM SUBMIT
-    form.addEventListener("submit", async function (e) {
-        e.preventDefault();
+   form.addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-        const formData = new FormData(form);
+    const formData = new FormData(form);
 
-        try {
-            const res = await fetch(`${API_BASE_URL}/profile`, {
+    try {
+        const res = await fetch(
+            "https://digital-profile-backend-production.up.railway.app/profile",
+            {
                 method: "POST",
                 body: formData
-            });
+            }
+        );
 
-            if (!res.ok) throw new Error("Backend error");
+        if (!res.ok) throw new Error("Backend error");
 
-            const data = await res.json();
+        const data = await res.json();
 
-            // Save QR for next page
-            localStorage.setItem("qrImage", data.qrCode);
+        localStorage.setItem("qrImage", data.qrCode);
+        window.location.href = "qr.html";
 
-            // Redirect to QR page
-            window.location.href = "qr.html";
+    } catch (err) {
+        console.error(err);
+        alert("QR generation failed");
+    }
+});
 
-        } catch (err) {
-            console.error(err);
-            alert("QR generation failed");
-        }
-    });
 
     // ADD CONTACT
     const addBtn = document.getElementById("add-contact");
