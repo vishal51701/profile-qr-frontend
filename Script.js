@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const addLinkBtn = document.getElementById("add-link-btn");
     const linksContainer = document.getElementById("links-container");
 
-    // ADD SOCIAL LINK
+    // ADD SOCIAL LINK----------
     addLinkBtn.addEventListener("click", function () {
         const div = document.createElement("div");
         div.className = "link-group";
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const formData = new FormData(form);
 
         try {
-            const res = await fetch(API_BASE_URL, {
+            const res = await fetch(`${API_BASE_URL}/profile`, {
                 method: "POST",
                 body: formData
             });
@@ -68,4 +68,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
-/////////////////////////////////////////////////-----
