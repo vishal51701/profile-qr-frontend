@@ -22,49 +22,31 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // FORM SUBMIT
-    form.addEventListener("submit", function (e) {
+    form.addEventListener("submit", async function (e) {
         e.preventDefault();
 
         const formData = new FormData(form);
 
-        fetch(API_BASE_URL, {
-            method: "POST",
-            body: formData
-        })
-        .then(res => {
-            if (!res.ok) throw new Error("Server error");
-            return res.json();
-        })
-        .then(data => {
-            const img = document.createElement("img");
-            img.src = "data:image/png;base64," + data.qrCode;
-            img.style.width = "200px";
+        try {
+            const res = await fetch(API_BASE_URL, {
+                method: "POST",
+                body: formData
+            });
 
-            const result = document.getElementById("qr-result");
-            result.innerHTML = "";
-            result.appendChild(img);
-        })
-        .catch(err => alert(err.message));
-        fetch(BACKEND_URL + "/generate-qr", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify(profileData)
-})
-.then(res => res.json())
-.then(data => {
-  // assuming backend sends { qr: "data:image/png;base64,..." }
-  localStorage.setItem("qrImage", data.qr);
+            if (!res.ok) throw new Error("Backend error");
 
-  // redirect to new page
-  window.location.href = "qr.html";
-})
-.catch(err => {
-  console.error(err);
-  alert("QR generation failed");
-});
+            const data = await res.json();
 
+            // Save QR for next page
+            localStorage.setItem("qrImage", data.qrCode);
+
+            // Redirect to QR page
+            window.location.href = "qr.html";
+
+        } catch (err) {
+            console.error(err);
+            alert("QR generation failed");
+        }
     });
 
     // ADD CONTACT
@@ -86,3 +68,4 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+/////////////////////////////////////////////////
