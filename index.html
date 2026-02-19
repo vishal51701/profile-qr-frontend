@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+
+<h1>Smart Digital Profile QR System</h1>
+
+<form id="qr-form" enctype="multipart/form-data">
+   Name :<input type="text" name="name" placeholder="Enter Name" required>
+
+   About :<textarea name="about" placeholder="Write something about yourself..." required></textarea>
+
+    <!-- <input type="text" name="company" placeholder="Company" required> -->
+    <!-- <input type="text" name="website" placeholder="Website"> -->
+
+   Upload Image :<input type="file" name="image" accept="image/*" required>
+
+    <div id="links-container">
+        <div class="link-group">
+            <p>Social Media Links :</p>
+           Title : <input type="text" name="socialTitle[]" placeholder="Platform (Instagram,LinkedIn)" required>
+            Link🔗 :<input type="url" name="socialLink[]" placeholder="https://LinkedIn/profile.com/..." required>
+                <button type="button" id="add-link-btn">Add another link</button>
+
+        </div>
+
+
+        <h3>Contact Details</h3>
+
+<div id="contacts-container">
+    <div class="contact-row">
+       Phone 📞 : <input type="text" name="phone" placeholder="Enter phone no ">
+       Email ✉️ : <input type="email" name="email" placeholder="Enter your email">
+        <!-- <input type="text" name="contactTitle[]" placeholder="Title (Phone / Email)" required>
+        <input type="text" name="contactValue[]" placeholder="Enter value" required> -->
+        <button type="button" class="remove-contact">❌</button>
+    </div>
+</div>
+
+<button type="button" id="add-contact">+ Add Contact</button>
+
+    </div>
+
+Location : <textarea 
+    name="location" 
+    placeholder="Enter your location (Area, City, State, Country)" 
+    rows="3">
+</textarea>
+
+
+    <button type="submit">Generate Profile QR</button>
+</form>
+
+
+<h3 id="status-message"></h3>
+<div id="qr-result"></div>
+
+<script type="module" src="Script.js"></script>
+  <link rel="stylesheet" href="style.css"></body>
+</html>

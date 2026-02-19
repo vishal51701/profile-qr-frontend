@@ -1,0 +1,139 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    background: linear-gradient(135deg, #eef2f7, #dbe7ff);
+    margin: 0;
+    padding: 30px 12px;
+}
+
+h1 {
+    text-align: center;
+    color: #1e3a8a;
+    margin-bottom: 25px;
+}
+
+form {
+    max-width: 500px;
+    margin: auto;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 6px;
+    margin-bottom: 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37,99,235,0.2);
+}
+
+textarea {
+    resize: vertical;
+}
+
+h3 {
+    margin-top: 20px;
+    color: #1f2937;
+}
+
+.link-group,
+.contact-row {
+    background: #f9fafb;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.link-group:hover,
+.contact-row:hover {
+    transform: scale(1.01);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.3s;
+}
+
+button:hover {
+    transform: translateY(-1px);
+}
+
+#add-link-btn,
+#add-contact {
+    background: #e0e7ff;
+    color: #1e3a8a;
+    margin-top: 10px;
+}
+
+#add-link-btn:hover,
+#add-contact:hover {
+    background: #c7d2fe;
+}
+
+button[type="submit"] {
+    width: 100%;
+    background: #2563eb;
+    color: white;
+    margin-top: 15px;
+}
+
+button[type="submit"]:hover {
+    background: #1d4ed8;
+}
+
+.remove-contact {
+    background: #fee2e2;
+    color: #b91c1c;
+    margin-top: 10px;
+}
+
+.remove-contact:hover {
+    background: #fecaca;
+}
+
+#qr-result {
+    text-align: center;
+    margin-top: 25px;
+}
+
+#qr-result img {
+    margin-top: 10px;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+

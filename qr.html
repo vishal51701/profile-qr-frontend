@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Your QR Code</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #f4f6fb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,.1);
+    }
+    img {
+      width: 250px;
+      margin-bottom: 20px;
+    }
+    button, a {
+      display: inline-block;
+      margin: 8px;
+      padding: 10px 18px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>Your Profile QR</h2>
+    <img id="qrImg" />
+    <br />
+    <a id="downloadBtn" download="profile-qr.png">Download QR</a>
+    <button onclick="window.print()">Print</button>
+  </div>
+
+  <script>
+    const qr = localStorage.getItem("qrImage");
+
+    if (!qr) {
+      alert("No QR found");
+      window.location.href = "/";
+    }
+
+    const img = document.getElementById("qrImg");
+    img.src = qr;
+
+    const download = document.getElementById("downloadBtn");
+    download.href = qr;
+  </script>
+
+</body>
+</html>
