@@ -28,13 +28,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const formData = new FormData(form);
 
     try {
-        const res = await fetch(
-            "https://digital-profile-backend-production.up.railway.app/profile",
-            {
-                method: "POST",
-                body: formData
-            }
-        );
+       const res = await fetch(
+  "https://digital-profile-backend-production-aa53.up.railway.app",
+  {
+    method: "POST",
+    body: formData////////
+  }
+);
 
         if (!res.ok) throw new Error("Backend error");
 
