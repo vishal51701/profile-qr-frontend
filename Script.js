@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     try {
        const res = await fetch(
-  "https://digital-profile-backend-production-aa53.up.railway.app",
+  "https://digital-profile-backend-production-aa53.up.railway.app/api/profile",
   {
     method: "POST",
     body: formData////////
